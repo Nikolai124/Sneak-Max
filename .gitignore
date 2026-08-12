@@ -103,7 +103,7 @@ pycache/
 
 # Distribution / packaging
 .Python
-__pycache__
+__pycache__/
 build/
 develop-eggs/
 dist/
