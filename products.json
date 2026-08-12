@@ -1,0 +1,74 @@
+[   
+    {
+        "id": 1,
+        "name": "puma",
+        "price": 11000,
+        "image": "39884602(13).jpg",
+        "gender": "мужской",
+        "sizes": [35,36,38,39,40]
+    },
+    {
+        "id": 2,
+        "name": "nike",
+        "price": 1300,
+        "image": "179871310299.jpg",
+        "gender": "женский",
+        "sizes": [36,37,40,43]
+    },
+    {
+        "id": 3,
+        "name": "adidas",
+        "price": 9000,
+        "image": "images (1).jpg",
+        "gender": "женский",
+        "sizes": [36,40,43]
+    }, 
+    {
+        "id": 4,
+        "name": "mizuno",
+        "price": 15500,
+        "image": "images (2).jpg",
+        "gender": "мужской",
+        "sizes": [35,36,38,40,43]
+    },
+    {
+        "id": 5,
+        "name": "adidas",
+        "price": 18500,
+        "image": "images (3).jpg",
+        "gender": "мужской",
+        "sizes": [35,36,38,41,42,43]
+    },
+    {
+        "id": 6,
+        "name": "adidas",
+        "price": 10500,
+        "image": "images (5).jpg",
+        "gender": "мужской",
+        "sizes": [36,38,40,41]
+    },
+    {
+        "id": 7,
+        "name": "puma",
+        "price": 10000,
+        "image": "images (22).jpg",
+        "gender": "женский",
+        "sizes": [35,40,41,43]
+    },
+    {
+        "id": 8,
+        "name": "puma",
+        "price": 19000,
+        "image": "images (44).jpg",
+        "gender": "мужской",
+        "sizes": [40,42,43]
+    },
+        {
+        "id": 9,
+        "name": "nike",
+        "price": 25000,
+        "image": "images (111).jpg",
+        "gender": "мужской",
+        "sizes": [37,38,40,42,43]
+    }
+]
