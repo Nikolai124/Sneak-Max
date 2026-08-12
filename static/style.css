@@ -1,0 +1,63 @@
+#price-min-value {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+
+#price-max-value {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+
+.price-filter {
+    position: relative
+}
+
+
+.size-filter-btn-group {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 10px;
+
+}
+
+
+.size-filter-btn-group:after { 
+  content: ""; 
+  display: block;
+}
+
+
+.size-filter-btn-group label {
+    display: flex;
+	margin: 0;
+	user-select: none;
+	position: relative;
+}
+
+
+.size-filter-btn-group input[type=checkbox] {
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+
+.size-filter-btn-group span {
+	display: inline-block;
+	cursor: pointer;
+	padding: 0px 10px;
+	line-height: 30px;
+	border: 1px solid #999;
+	transition: background 0.2s ease;
+}
+
+
+.size-filter-btn-group input[type=checkbox]:checked + span {
+	background: #ffe0a6;
+}

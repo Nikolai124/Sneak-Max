@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="..\static\style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="catalog">
+        
+        <div class="products">
+            <div class="product-card"></div>
+            <button name="show-more">Показать ещё</button>
+        </div>
+        <form class="filters">
+            <legend>Подбор по параметрам</legend>
+            <div class="price-filter">
+                <legend>Цена, руб</legend>
+                <!-- Узнать как правильно сделать ползунок цены (как правильно выравнять, и уточнить верно ли уже сделано)
+                  Узнать как выводить значения в двух ячейках прим передвижении ползунка. И нужно ли использовать js-->
+                <!-- нужно сделать через grid -->
+                <input type="range" min="0" max="30000" value="1850" id="price-min-value"/>
+                <input type="range" min="0" max="30000" value="25768" id="price-max-value"/>
+            </div>
+            <div class="gender-filter">
+                <legend>Пол</legend>
+                <input type="checkbox" name="male-gender"/>мужской
+                <input type="checkbox" name="female gender"/>женский
+            </div>
+            <div class="size-filter">
+                <legend>Размер</legend> 
+                <!-- Узнать как правильно сделать выбор размера (1-просто копипаст 9 раз и разные названия. 2-использовать {% for... %} и из json файла брать информацию) -->
+                <div class="size-filter-btn-group">
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="35"/>
+                        <span>35</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="36"/>
+                        <span>36</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="37"/>
+                        <span>37</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="38"/>
+                        <span>38</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="39"/>
+                        <span>39</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="40"/>
+                        <span>40</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="41"/>
+                        <span>41</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="42"/>
+                        <span>42</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="size" name="size" value="43"/>
+                        <span>43</span>
+                    </label>
+                </div>
+            </div>
+            <button name="apply" type="button">Применить</button>
+            <button name="reset" type="reset">Сбросить</button>
+        </form>
+    </div>
+</body>
+</html>
