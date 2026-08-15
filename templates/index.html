@@ -11,24 +11,44 @@
         <div class="products">
             {% for product in products %}
                 <div class="product-card">
-                    <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" />
-                    <h3>{{ product.name }}</h3>
-                    <p>{{ product.price }}</p>
+                    <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" class="img-product"/>
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="product-price">{{ product.price }}</p>
                 </div>
             {% endfor %}
-            <button name="show-more">Показать ещё</button>
+            <button class="show-more">Показать ещё</button>
         </div>
         <form class="filters">
             <legend>Подбор по параметрам</legend>
             <div class="price-filter">
                 <legend>Цена, руб</legend>
-                <input type="range" min="0" max="30000" value="1850" id="price-min-value"/>
-                <input type="range" min="0" max="30000" value="25768" id="price-max-value"/>
+                <div class="price-input">
+                    <div class="price-field">
+                        <input type="number" class="min-input" value="2500">
+                    </div>
+                    <div class="price-field">
+                        <input type="number" class="max-input" value="8500">
+                    </div>
+                </div>
+                <div class="price-slider-wrap">
+                    <div class="slider">
+                        <div class="price-slider"></div>
+                    </div>
+                    <div class="range-input">
+                        <input type="range" min="0" max="30000" value="1850" class="min-range" step="1"/>
+                        <input type="range" min="0" max="30000" value="25768" class="max-range" step="1"/>
+                    </div>
+                </div>
             </div>
             <div class="gender-filter">
-                <legend>Пол</legend>
-                <input type="checkbox" name="male-gender"/>мужской
-                <input type="checkbox" name="female gender"/>женский
+                <label>
+                    <input type="checkbox" name="male-gender"/>
+                    <span>мужской</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="female-gender"/>
+                    <span>женский</span>
+                </label>
             </div>
             <div class="size-filter">
                 <legend>Размер</legend> 
