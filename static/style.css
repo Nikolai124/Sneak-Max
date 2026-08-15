@@ -335,12 +335,12 @@ button[name="reset"] {
 
 
 .product-action-view {
-	background-image: url("icons/Stroke 3.png"), url("icons/Stroke 1.png");
+	background-image: url("icons/eye.png"), url("icons/eye-pupil.png");
 }
 
 
 .product-action-cart {
-	background-image: url("icons/Vector.png");
+	background-image: url("icons/cart.png");
 }
 
 
