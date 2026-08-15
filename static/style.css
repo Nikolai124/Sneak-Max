@@ -299,6 +299,7 @@ button[name="reset"] {
 	object-fit: contain;
 	background: #f5f5f5;
 	border-radius: 4px;
+	transition: filter 0.2s ease;
 }
 
 
@@ -319,6 +320,11 @@ button[name="reset"] {
 
 .product-card:hover .product-actions {
 	opacity: 1;
+}
+
+
+.product-card:hover .img-product {
+	filter: brightness(1.15);
 }
 
 
