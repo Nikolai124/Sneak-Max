@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SneakMax - Каталог</title>
 </head>
 <body>
+    <h1 class="catalog-title">Каталог</h1>
     <div class="catalog">
         <div class="products">
             {% for product in products %}
                 <div class="product-card">
-                    <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" class="img-product"/>
+                    <div class="product-image">
+                        <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" alt="{{ product.name }}" class="img-product"/>
+                        <div class="product-actions">
+                            <button class="product-action product-action-view" type="button" aria-label="Быстрый просмотр"></button>
+                            <button class="product-action product-action-cart" type="button" aria-label="В корзину"></button>
+                        </div>
+                    </div>
                     <h3 class="product-name">{{ product.name }}</h3>
-                    <p class="product-price">{{ product.price }}</p>
+                    <p class="product-price">{{ product.price }} ₽</p>
                 </div>
             {% endfor %}
             <button class="show-more">Показать ещё</button>
@@ -24,10 +31,10 @@
                 <legend>Цена, руб</legend>
                 <div class="price-input">
                     <div class="price-field">
-                        <input type="number" class="min-input" value="2500">
+                        <input type="number" class="min-input" value="1850">
                     </div>
                     <div class="price-field">
-                        <input type="number" class="max-input" value="8500">
+                        <input type="number" class="max-input" value="25768">
                     </div>
                 </div>
                 <div class="price-slider-wrap">
@@ -41,14 +48,17 @@
                 </div>
             </div>
             <div class="gender-filter">
-                <label>
-                    <input type="checkbox" name="male-gender"/>
-                    <span>мужской</span>
-                </label>
-                <label>
-                    <input type="checkbox" name="female-gender"/>
-                    <span>женский</span>
-                </label>
+                <legend>Пол</legend>
+                <div class="gender-filter-group">
+                    <label>
+                        <input type="checkbox" name="male-gender"/>
+                        <span>мужской</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="female-gender"/>
+                        <span>женский</span>
+                    </label>
+                </div>
             </div>
             <div class="size-filter">
                 <legend>Размер</legend> 
@@ -95,5 +105,6 @@
             <button name="reset" type="reset">Сбросить</button>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
