@@ -113,11 +113,11 @@
         <h3>Какой тип кроссовок рассматриваете?</h3>
         {% for item in quiz %}
             <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
+            <label>
+                <input type="checkbox" name="model-quiz"/>
+                <span>{{ item.model }}</span>
+            </label>
         {% endfor %}
-        <label>
-            <input type="checkbox" name="model-quiz"/>
-            <span>кеды</span>
-        </label>
         <button name="next-step" type="button">Следующий шаг</button>
     </div> -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
