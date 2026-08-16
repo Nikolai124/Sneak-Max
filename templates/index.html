@@ -107,6 +107,19 @@
             <button name="reset" type="reset">Сбросить</button>
         </form>
     </div>
+    <!-- <h1 class="quiz-title">Мы подберём идеальную пару для вас</h1>
+    <div class="quiz">
+        <legend>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</legend>
+        <h3>Какой тип кроссовок рассматриваете?</h3>
+        {% for item in quiz %}
+            <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
+        {% endfor %}
+        <label>
+            <input type="checkbox" name="model-quiz"/>
+            <span>кеды</span>
+        </label>
+        <button name="next-step" type="button">Следующий шаг</button>
+    </div> -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
