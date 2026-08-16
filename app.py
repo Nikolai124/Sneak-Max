@@ -12,4 +12,4 @@ with open("quiz.json", "r", encoding="utf-8") as file:
 app = Flask(__name__)
 @app.route('/')
 def main():
-    return render_template('index.html', products=product_list), render_template('index.html',quiz=quiz_list)
+    return render_template('index.html', products=product_list, quiz=quiz_list)
