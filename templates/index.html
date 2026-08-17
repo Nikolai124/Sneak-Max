@@ -7,119 +7,226 @@
     <title>SneakMax - Каталог</title>
 </head>
 <body>
-    <h1 class="catalog-title">Каталог</h1>
-    <div class="catalog">
-        <div class="products">
-            {% for product in products %}
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" alt="{{ product.name }}" class="img-product"/>
-                        <div class="product-actions">
-                            <button class="product-action product-action-view" type="button" aria-label="Быстрый просмотр"></button>
-                            <button class="product-action product-action-cart" type="button" aria-label="В корзину"></button>
+    <section class="catalog">
+        <div class="container">
+            <div class="catalog-main">
+                <h2 class="catalog-title">Каталог</h2>
+                <div class="products">
+                    {% for product in products %}
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{{ url_for('static', filename='img/catalog/' + product.image) }}" alt="{{ product.name }}" class="img-product"/>
+                                <div class="product-actions">
+                                    <button class="product-action product-action-view" type="button" aria-label="Быстрый просмотр"></button>
+                                    <button class="product-action product-action-cart" type="button" aria-label="В корзину"></button>
+                                </div>
+                            </div>
+                            <h3 class="product-name">{{ product.name }}</h3>
+                            <p class="product-price">{{ product.price }} ₽</p>
                         </div>
-                    </div>
-                    <h3 class="product-name">{{ product.name }}</h3>
-                    <p class="product-price">{{ product.price }} ₽</p>
+                    {% endfor %}
+                    <button class="show-more">Показать ещё</button>
                 </div>
-            {% endfor %}
-            <button class="show-more">Показать ещё</button>
-        </div>
-        <form class="filters">
-            <legend>Подбор по параметрам</legend>
-            <div class="price-filter">
-                <legend>Цена, руб</legend>
-                <div class="price-box">
-                    <div class="price-input">
-                        <div class="price-field">
-                            <input type="number" class="min-input" value="1850">
+            </div>
+            <form class="filters">
+                <legend>Подбор по параметрам</legend>
+                <div class="price-filter">
+                    <legend>Цена, руб</legend>
+                    <div class="price-box">
+                        <div class="price-input">
+                            <div class="price-field">
+                                <input type="number" class="min-input" value="1850">
+                            </div>
+                            <div class="price-field">
+                                <input type="number" class="max-input" value="25768">
+                            </div>
                         </div>
-                        <div class="price-field">
-                            <input type="number" class="max-input" value="25768">
-                        </div>
-                    </div>
-                    <div class="price-slider-wrap">
-                        <div class="slider">
-                            <div class="price-slider"></div>
-                            <div class="range-input">
-                                <input type="range" min="0" max="30000" value="1850" class="min-range" step="1"/>
-                                <input type="range" min="0" max="30000" value="25768" class="max-range" step="1"/>
+                        <div class="price-slider-wrap">
+                            <div class="slider">
+                                <div class="price-slider"></div>
+                                <div class="range-input">
+                                    <input type="range" min="0" max="30000" value="1850" class="min-range" step="1"/>
+                                    <input type="range" min="0" max="30000" value="25768" class="max-range" step="1"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="gender-filter">
-                <legend>Пол</legend>
-                <div class="gender-filter-group">
-                    <label>
-                        <input type="checkbox" name="male-gender"/>
-                        <span>мужской</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" name="female-gender"/>
-                        <span>женский</span>
-                    </label>
+                <div class="gender-filter">
+                    <legend>Пол</legend>
+                    <div class="gender-filter-group">
+                        <label>
+                            <input type="checkbox" name="male-gender"/>
+                            <span>мужской</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="female-gender"/>
+                            <span>женский</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="size-filter">
-                <legend>Размер</legend> 
-                <div class="size-filter-btn-group">
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="35"/>
-                        <span>35</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="36"/>
-                        <span>36</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="37"/>
-                        <span>37</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="38"/>
-                        <span>38</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="39"/>
-                        <span>39</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="40"/>
-                        <span>40</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="41"/>
-                        <span>41</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="42"/>
-                        <span>42</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" class="size" name="size" value="43"/>
-                        <span>43</span>
-                    </label>
+                <div class="size-filter">
+                    <legend>Размер</legend> 
+                    <div class="size-filter-btn-group">
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="35"/>
+                            <span>35</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="36"/>
+                            <span>36</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="37"/>
+                            <span>37</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="38"/>
+                            <span>38</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="39"/>
+                            <span>39</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="40"/>
+                            <span>40</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="41"/>
+                            <span>41</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="42"/>
+                            <span>42</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size" name="size" value="43"/>
+                            <span>43</span>
+                        </label>
+                    </div>
                 </div>
+                <button name="apply" type="button">Применить</button>
+                <button name="reset" type="reset">Сбросить</button>
+            </form>
+        </div>
+    </section>
+    <section class="quiz">
+          <div class="container-first step">
+            <div class="first_container-header">
+              <h2 class="first-header">Мы подберем идеальную пару для вас</h2>
+              <p class="quiz-description">Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
+              <h3 class="quiz-question">Какой тип кроссовок рассматриваете?</h3>
             </div>
-            <button name="apply" type="button">Применить</button>
-            <button name="reset" type="reset">Сбросить</button>
-        </form>
-    </div>
-    <!-- <h1 class="quiz-title">Мы подберём идеальную пару для вас</h1>
-    <div class="quiz">
-        <legend>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</legend>
-        <h3>Какой тип кроссовок рассматриваете?</h3>
-        {% for item in quiz %}
-            <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
-            <label>
-                <input type="checkbox" name="model-quiz"/>
-                <span>{{ item.model }}</span>
-            </label>
-        {% endfor %}
-        <button name="next-step" type="button">Следующий шаг</button>
-    </div> -->
+            <div class="quiz_card-container">
+                {% for item in quiz %}
+                    <label class="quiz_card-item" data-label="кеды">
+                        <div class="quiz_card">
+                            <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" class="quiz-checkbox">
+                            <span>{{ item.model }}</span>
+                        </div>
+                    </label>
+                {% endfor %}
+            </div>
+            <div class="first_quiz-footer">
+              <p class="pages">1 из 3</p>
+              <button class="quiz_button first_button">Следующий шаг</button>
+            </div>
+          </div>
+          <div class="container-second step">
+            <div class="second_container-header">
+              <h2 class="second-header">Мы подберем идеальную пару для вас</h2>
+              <div class="second_quiz-description"><p>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p></div>
+              <h3 class="second_quiz-question">Какой размер вам подойдёт?</h3>
+            </div>
+            <div class="quiz_sizes-container">
+              <div class="sizes-checkbox">
+                <label class="size-option">
+                  <input type="checkbox" class="quiz-checkbox">
+                  <span>менее 36</span>
+                </label>
+                <label class="size-option">
+                  <input type="checkbox" class="quiz-checkbox">
+                  <span>36-38</span>
+                </label>
+                <label class="size-option">
+                  <input type="checkbox" class="quiz-checkbox">
+                  <span>39-41</span>
+                </label>
+                <label class="size-option">
+                  <input type="checkbox" class="quiz-checkbox">
+                  <span>42-44</span>
+                </label>
+                <label class="size-option">
+                  <input type="checkbox" class="quiz-checkbox">
+                  <span>45 и больше</span>
+                </label>
+              </div>
+              <div class="quiz-picture"><img src="{{ url_for('static', filename='img/quiz/Rectangle 45.png') }}" alt="кроссовки"></div>
+            </div>
+            <div class="second_quiz-footer">
+              <p class="pages">2 из 3</p>
+              <button class="quiz_button second_button">Следующий шаг</button>
+            </div>
+          </div>
+          <div class="container-third step">
+            <div class="third_container">
+              <div class="third_container-header">
+                <h2 class="third-header">Ваша подборка готова!</h2>
+                <div class="second_quiz-description"><p>Оставьте свои контактные данные, чтобы бы мы могли отправить  подготовленный для вас каталог</p></div>
+              </div>
+              <!-- <div class="form-container">
+                <h1 class="form-header form-text">Получить предложение</h1>
+                <p class="form-desc form-text">Получите подборку подходящих для вас моделей на почту</p>
+                <form action="/" method="POST">
+                  <input type="hidden" name="form_type" value="form1_submit">
+                  <input type="text" placeholder="Ваше имя" class="send-input" name="user_name">
+                  <input type="email" placeholder="E-mail" class="send-input" name="user_email">
+                  <button class="send-button" type="submit">Получить</button>
+                </form>
+              </div> -->
+            </div>
+          </div>
+        </section>
+    <!-- <section class="quiz">
+        <div class="container">
+            <div classs="slider">
+                <input type="radio" name="slider" id="slide1" checked>
+                <input type="radio" name="slider" id="slide2">
+                <input type="radio" name="slider" id="slide3">
+                <div class="slides"> 
+                    <div class="slide">
+                        <div class="caption">
+                            <h2>Мы подберём идеальную пару для вас</h2>
+                            <p>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
+                            <h3>Какой тип кроссовок рассматриваете?</h3>
+                        </div>
+                        {% for item in quiz %}
+                            <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
+                            <label>
+                                <input type="checkbox" name="model-quiz"/>
+                                <span>{{ item.model }}</span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <div class="slide">
+                        <h2>Мы подберём идеальную пару для вас</h2>
+                        <p>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
+                        <h3>Какой размер вам подойдёт?</h3>
+                        <input type="checkbox" name=""/>
+                        <img src="img\quiz\Rectangle 45.png" alt="изображение обуви"/>
+                    </div>
+                    <div class="slide">
+                        <img src="image3.jpg" alt="Слайд 3">
+                    </div>
+                </div>
+                <button class="next-btn">Следующий шаг</button>
+            </div>
+        </div>
+    </section> -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
