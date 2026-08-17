@@ -191,42 +191,6 @@
             </div>
           </div>
         </section>
-    <!-- <section class="quiz">
-        <div class="container">
-            <div classs="slider">
-                <input type="radio" name="slider" id="slide1" checked>
-                <input type="radio" name="slider" id="slide2">
-                <input type="radio" name="slider" id="slide3">
-                <div class="slides"> 
-                    <div class="slide">
-                        <div class="caption">
-                            <h2>Мы подберём идеальную пару для вас</h2>
-                            <p>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
-                            <h3>Какой тип кроссовок рассматриваете?</h3>
-                        </div>
-                        {% for item in quiz %}
-                            <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
-                            <label>
-                                <input type="checkbox" name="model-quiz"/>
-                                <span>{{ item.model }}</span>
-                            </label>
-                        {% endfor %}
-                    </div>
-                    <div class="slide">
-                        <h2>Мы подберём идеальную пару для вас</h2>
-                        <p>Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями</p>
-                        <h3>Какой размер вам подойдёт?</h3>
-                        <input type="checkbox" name=""/>
-                        <img src="img\quiz\Rectangle 45.png" alt="изображение обуви"/>
-                    </div>
-                    <div class="slide">
-                        <img src="image3.jpg" alt="Слайд 3">
-                    </div>
-                </div>
-                <button class="next-btn">Следующий шаг</button>
-            </div>
-        </div>
-    </section> -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
