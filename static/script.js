@@ -73,3 +73,21 @@ for (let i = 0; i < rangeInputvalue.length; i++) {
         }
     });
 }
+
+const quizSteps = document.querySelectorAll(".quiz .step");
+const quizButtons = document.querySelectorAll(".quiz_button");
+
+let currentStep = 0;
+
+quizSteps[0].classList.add("active");
+
+for (let i = 0; i < quizButtons.length; i++) {
+    quizButtons[i].addEventListener("click", () => {
+
+        if (currentStep < quizSteps.length - 1) {
+            quizSteps[currentStep].classList.remove("active");
+            currentStep++;
+            quizSteps[currentStep].classList.add("active");
+        }
+    });
+}
