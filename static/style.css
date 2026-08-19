@@ -423,14 +423,14 @@ button[name="reset"] {
 
 .quiz {
 	background: #FFF4EE;
-	padding: 60px 0;
+	padding: 45px 0;
 }
 
 
 .step {
 	display: none;
 	flex-direction: column;
-	max-width: 1550px;
+	max-width: 1210px;
 	margin: 0 auto;
 	padding: 0 15px;
 }
@@ -458,7 +458,7 @@ button[name="reset"] {
 .second-header,
 .third-header {
 	margin: 0;
-	font-size: 30px;
+	font-size: 26px;
 	font-weight: 600;
 	line-height: 1.3;
 	color: #444B58;
@@ -467,8 +467,8 @@ button[name="reset"] {
 
 .quiz-description,
 .second_quiz-description {
-	margin: 20px 0 0;
-	font-size: 16px;
+	margin: 15px 0 0;
+	font-size: 14px;
 	line-height: 1.5;
 	color: #808080;
 }
@@ -482,7 +482,7 @@ button[name="reset"] {
 .quiz-question,
 .second_quiz-question {
 	margin: 0;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: normal;
 	color: #444B58;
 }
@@ -494,16 +494,16 @@ button[name="reset"] {
 	display: block;
 	height: 1px;
 	background: #DBBBA9;
-	margin-top: 25px;
-	margin-bottom: 30px;
+	margin-top: 20px;
+	margin-bottom: 24px;
 }
 
 
 .quiz_card-container {
-	margin-top: 30px;
+	margin-top: 24px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 25px 100px;
+	gap: 20px 60px;
 }
 
 
@@ -537,8 +537,8 @@ button[name="reset"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	margin: 0;
-	width: 20px;
-	height: 20px;
+	width: 18px;
+	height: 18px;
 	flex-shrink: 0;
 	background: #fff;
 	border: 1px solid #DBBBA9;
@@ -556,11 +556,11 @@ button[name="reset"] {
 
 
 .checkbox-container {
-	margin-top: 15px;
+	margin-top: 12px;
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 
@@ -570,10 +570,10 @@ button[name="reset"] {
 
 
 .sizes-checkbox {
-	margin-top: 40px;
+	margin-top: 30px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	gap: 20px;
+	gap: 16px;
 }
 
 
@@ -581,20 +581,22 @@ button[name="reset"] {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	cursor: pointer;
 	user-select: none;
 }
 
 
 .quiz-picture {
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 
 .quiz-picture img {
 	display: block;
 	width: 100%;
+	max-height: 260px;
+	object-fit: cover;
 	border-radius: 4px;
 }
 
@@ -616,27 +618,27 @@ button[name="reset"] {
 	width: 100%;
 	height: 1px;
 	background: #DBBBA9;
-	margin-top: 40px;
-	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 24px;
 }
 
 
 .pages {
 	margin: 0;
-	font-size: 16px;
+	font-size: 14px;
 	color: #808080;
 }
 
 
 .quiz_button {
-	width: 340px;
-	height: 60px;
+	width: 280px;
+	height: 50px;
 	border: 1px solid #DBBBA9;
 	border-radius: 4px;
 	background: #fff;
 	color: #444B58;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 14px;
 	cursor: pointer;
 	transition: background 0.2s ease, color 0.2s ease;
 }
@@ -654,8 +656,8 @@ button[name="reset"] {
 	display: block;
 	height: 1px;
 	background: #DBBBA9;
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 
@@ -668,12 +670,12 @@ button[name="reset"] {
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 830px;
+	width: 690px;
 	max-width: 100%;
-	min-height: 390px;
-	margin: 0 auto;
+	min-height: 300px;
+	margin: 0;
 	background-color: #DBBBA9;
-	padding: 40px 250px 40px 40px;
+	padding: 30px 200px 30px 32px;
 }
 
 
@@ -690,37 +692,37 @@ button[name="reset"] {
 
 
 .form-header {
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: 600;
 }
 
 
 .form-desc {
-	margin-top: 10px;
-	font-size: 16px;
+	margin-top: 8px;
+	font-size: 14px;
 }
 
 
 .send-input {
 	display: block;
 	width: 100%;
-	max-width: 500px;
-	height: 50px;
-	margin-top: 15px;
+	max-width: 420px;
+	height: 44px;
+	margin-top: 12px;
 	border-radius: 4px;
 	outline: none;
 	border: none;
-	text-indent: 30px;
+	text-indent: 20px;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 14px;
 	color: #444B58;
 }
 
 
 .send-button {
-	margin-top: 20px;
-	width: 220px;
-	height: 60px;
+	margin-top: 18px;
+	width: 180px;
+	height: 48px;
 	background-color: #F2584B;
 	color: #fff;
 	border-radius: 4px;
@@ -728,17 +730,17 @@ button[name="reset"] {
 	outline: none;
 	border: none;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 14px;
 	cursor: pointer;
 }
 
 
 .form-phone {
 	position: absolute;
-	right: -40px;
+	right: -18px;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 205px;
+	width: 165px;
 	height: auto;
 	z-index: 10;
 	pointer-events: none;
@@ -771,7 +773,8 @@ button[name="reset"] {
 
 @media (max-width: 860px) {
 	.form-container {
-		padding-right: 40px;
+		width: 100%;
+		padding-right: 32px;
 	}
 
 	.form-phone {
@@ -806,6 +809,6 @@ button[name="reset"] {
 	}
 
 	.form-container {
-		padding: 30px;
+		padding: 24px;
 	}
 }
