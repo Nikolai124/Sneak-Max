@@ -1,0 +1,323 @@
+.site_container {
+	overflow: hidden;
+	display: block;
+}
+
+.main {
+	display: block;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.list_reset {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+
+.header {
+	background-color: #484283;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.header a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.header img {
+	max-width: 100%;
+}
+
+.header_container {
+	position: relative;
+	align-items: center;
+	padding: 20px 15px;
+	width: 100%;
+}
+
+.header_container::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	height: 1px;
+	background-color: white;
+	transform: translateX(-50%);
+	width: 100%;
+}
+
+.header_left {
+	grid-column-start: span 2;
+	grid-column-end: auto;
+}
+
+.header_right {
+	display: flex;
+	grid-column-start: span 10;
+	grid-column-end: auto;
+	justify-content: flex-end;
+}
+
+.header__title {
+	color: white;
+	line-height: 1;
+	font-size: 30px;
+}
+
+.nav_list {
+	display: flex;
+	align-items: center;
+}
+
+.nav_item:not(:last-child) {
+	margin-right: 15px;
+}
+
+.upper {
+	color: white;
+	position: relative;
+}
+
+
+.hero {
+	background-color: #484283;
+	position: relative;
+	padding: 130px 0;
+	max-height: 528px;
+	width: 100%;
+}
+
+.hero__container {
+	position: relative;
+	justify-content: center;
+	height: 100%;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.hero__title {
+	color: white;
+	font-size: 36px;
+	z-index: 2;
+}
+
+.hero__descr {
+	color: white;
+	font-size: 16px;
+	z-index: 2;
+}
+
+.hero__bg-text {
+	color: rgba(255, 255, 255, 0.12);
+	font-family: Intro Bold;
+	font-weight: 700;
+	font-size: 200px;
+	line-height: 200%;
+	position: absolute;
+	z-index: 0;
+	left: 50%;
+	top: 30%;
+	margin-top: 70px;
+	margin-left: 50px;
+	transform: translate(-50%, -50%);
+}
+
+.btn__go {
+	width: 250px;
+	height: 60px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+	margin-top: 26px;
+	position: relative;
+	font-size: 16px;
+	background-color: #F14F4F;
+	color: white;
+	border-color: #ff6363;
+	cursor: pointer;
+	z-index: 2;
+}
+
+
+.about {
+	background-color: #484283;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	height: 580px;
+	margin: 0;
+	padding: 0;
+}
+
+.about__container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.about__text {
+	width: 35%;
+	transform: translateY(70px);
+}
+
+.about__head {
+	color: white;
+	font-size: 30px;
+	position: relative;
+	z-index: 2;
+}
+
+.about__desc {
+	color: white;
+	font-size: 16px;
+	position: relative;
+	z-index: 2;
+}
+
+.about__head__down {
+	color: white;
+	font-size: 30px;
+	position: relative;
+	z-index: 2;
+	margin-left: 40%;
+}
+
+.about__circles {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.about__image {
+	position: absolute;
+	top: -150px;
+	right: 150px;
+	overflow: hidden;
+	width: 500px;
+	height: 950px;
+	transform: rotate(15deg);
+	flex-shrink: 0;
+}
+
+.about__image img {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	width: 200%;
+	max-width: none;
+	object-fit: cover;
+	transform: rotate(-15deg) translateX(-50%);
+}
+
+
+.team {
+	background-color: #484283;
+	position: relative;
+	padding: 60px 0;
+}
+
+.team img {
+	max-width: 100%;
+}
+
+.team__title {
+	margin: 0 0 20px;
+	color: white;
+}
+
+.team__card {
+	position: relative;
+	z-index: 5;
+	row-gap: 40px;
+	column-gap: 20px;
+}
+
+.team__item {
+	grid-column: 4 span;
+}
+
+.team__img {
+	overflow: hidden;
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
+
+.team__name {
+	color: white;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.team__job {
+	color: white;
+	display: block;
+}
+
+.team__img-bg {
+	position: absolute;
+	right: 0;
+	box-sizing: border-box;
+	pointer-events: none;
+	top: 0;
+}
+
+
+.faq {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	text-align: center;
+	width: 100%;
+	padding: 60px 0;
+}
+
+.faq__title {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.faq details {
+	width: 100%;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.faq details summary {
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	list-style: none;
+}
+
+.faq details summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq details p {
+	text-align: center;
+	margin: 10px 0;
+}
+
+
+#catalog,
+#about,
+#quiz,
+#team,
+#faq {
+	scroll-margin-top: 90px;
+}
