@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Максим Золотарёв",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1 (1).png",
+        "post": "Администратор"
+    },
+    {
+        "id": 2,
+        "name": "Полина Северская",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1.png",
+        "post": "Стилист-консультант"
+    },
+    {
+        "id": 3,
+        "name": "Марина Левченко",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1.jpg",
+        "post": "Менеджер по продажам"
+    },
+    {
+        "id": 4,
+        "name": "Артём Ковалёв",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1 (2).png",
+        "post": "Менеджер по закупкам"
+    },
+    {
+        "id": 5,
+        "name": "Кирилл Абрамов",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1 (3).png",
+        "post": "Контент-менеджер"
+    },
+    {
+        "id": 6,
+        "name": "Алиса Веретенникова",
+        "image": "jack-irwin-djIR42oN7Js-unsplash 1 (4).png",
+        "post": "Специалист поддержки"
+    }
+]
