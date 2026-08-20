@@ -264,12 +264,12 @@
                 <img class="team__img-bg" src="{{ url_for('static', filename='img/site/Group 72.png') }}">
                 <div class="container">
                     <h2 class="team__title">Наша команда</h2>
-                    <ul class="team__card grid list_reset">
-                        {% for _ in range(6) %}
+                    <ul class="team__card grid list_reset"> 
+                        {% for info in team %}
                             <li class="team__item">
-                                <img class="team__img" src="{{ url_for('static', filename='img/site/team.png') }}">
-                                <p class="team__name">Имя</p>
-                                <span class="team__job">Должность</span>
+                                <img class="team__img" src="{{ url_for('static', filename='img/team/' + info.image) }}" alt="{{ info.name }}" class="img-team">
+                                <p class="team__name">{{ info.name }}</p>
+                                <span class="team__job">{{ info.post }}</span>
                             </li>
                         {% endfor %}
                     </ul>
