@@ -812,3 +812,22 @@ button[name="reset"] {
 		padding: 24px;
 	}
 }
+
+.quiz-status {
+    margin-top: 12px;
+    min-height: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.quiz-status--pending {
+    color: #888888;
+}
+
+.quiz-status--success {
+    color: #2e9e4f;
+}
+
+.quiz-status--error {
+    color: #d94141;
+}
