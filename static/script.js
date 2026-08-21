@@ -91,3 +91,73 @@ for (let i = 0; i < quizButtons.length; i++) {
         }
     });
 }
+
+const quizForm = document.querySelector(".quiz-form");
+const quizStatus = document.querySelector(".quiz-status");
+
+function collectQuizChoices(fieldName) {
+    const selector = `.quiz input[name="${fieldName}"]:checked`;
+    return Array.from(document.querySelectorAll(selector)).map(input => input.value);
+}
+
+function setQuizStatus(text, state) {
+    if (!quizStatus) {
+        return;
+    }
+    quizStatus.textContent = text;
+    quizStatus.className = "quiz-status";
+    if (state) {
+        quizStatus.classList.add(`quiz-status--${state}`);
+    }
+}
+
+if (quizForm) {
+    const submitButton = quizForm.querySelector(".send-button");
+
+    quizForm.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const payload = {
+            user_name: quizForm.user_name.value.trim(),
+            user_email: quizForm.user_email.value.trim(),
+            types: collectQuizChoices("type"),
+            sizes: collectQuizChoices("size")
+        };
+
+        if (payload.user_name.length < 2) {
+            setQuizStatus("Укажите имя", "error");
+            return;
+        }
+
+        if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(payload.user_email)) {
+            setQuizStatus("Укажите корректный e-mail", "error");
+            return;
+        }
+
+        submitButton.disabled = true;
+        setQuizStatus("Отправляем...", "pending");
+
+        try {
+            const response = await fetch(quizForm.action, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+
+            if (response.ok && result.ok) {
+                setQuizStatus(result.message, "success");
+                quizForm.reset();
+            }
+            else {
+                setQuizStatus(result.message || "Не удалось отправить письмо", "error");
+            }
+        }
+        catch (error) {
+            setQuizStatus("Сервер недоступен, попробуйте позже", "error");
+        }
+        finally {
+            submitButton.disabled = false;
+        }
+    });
+}
