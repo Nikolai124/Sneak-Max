@@ -185,12 +185,12 @@
                     </div>
                     <div class="quiz_card-container">
                         {% for item in quiz %}
-                            <label class="quiz_card-item" data-label="кеды">
+                            <label class="quiz_card-item" data-label="{{ item.model }}">
                                 <div class="quiz_card">
                                     <img src="{{ url_for('static', filename='img/quiz/' + item.image) }}" alt="{{ item.name }}" class="img-quiz"/>
                                 </div>
                                 <div class="checkbox-container">
-                                    <input type="checkbox" class="quiz-checkbox">
+                                    <input type="checkbox" class="quiz-checkbox" name="type" value="{{ item.model }}">
                                     <span>{{ item.model }}</span>
                                 </div>
                             </label>
@@ -210,23 +210,23 @@
                     <div class="quiz_sizes-container">
                         <div class="sizes-checkbox">
                             <label class="size-option">
-                                <input type="checkbox" class="quiz-checkbox">
+                                <input type="checkbox" class="quiz-checkbox" name="size" value="менее 36">
                                 <span>менее 36</span>
                             </label>
                             <label class="size-option">
-                                <input type="checkbox" class="quiz-checkbox">
+                                <input type="checkbox" class="quiz-checkbox" name="size" value="36-38">
                                 <span>36-38</span>
                             </label>
                             <label class="size-option">
-                                <input type="checkbox" class="quiz-checkbox">
+                                <input type="checkbox" class="quiz-checkbox" name="size" value="39-41">
                                 <span>39-41</span>
                             </label>
                             <label class="size-option">
-                                <input type="checkbox" class="quiz-checkbox">
+                                <input type="checkbox" class="quiz-checkbox" name="size" value="42-44">
                                 <span>42-44</span>
                             </label>
                             <label class="size-option">
-                                <input type="checkbox" class="quiz-checkbox">
+                                <input type="checkbox" class="quiz-checkbox" name="size" value="45 и больше">
                                 <span>45 и больше</span>
                             </label>
                         </div>
@@ -247,11 +247,11 @@
                             <div class="form-content">
                                 <h1 class="form-header form-text">Получить предложение</h1>
                                 <p class="form-desc form-text">Получите подборку подходящих для вас моделей на почту</p>
-                                <form action="/" method="POST">
-                                    <input type="hidden" name="form_type" value="form1_submit">
-                                    <input type="text" placeholder="Ваше имя" class="send-input" name="user_name">
-                                    <input type="email" placeholder="E-mail" class="send-input" name="user_email">
+                                <form class="quiz-form" action="{{ url_for('quiz_send') }}" method="POST" novalidate>
+                                    <input type="text" placeholder="Ваше имя" class="send-input" name="user_name" required>
+                                    <input type="email" placeholder="E-mail" class="send-input" name="user_email" required>
                                     <button class="send-button" type="submit">Получить</button>
+                                    <p class="quiz-status" role="status"></p>
                                 </form>
                             </div>
                             <img class="form-phone" src="{{ url_for('static', filename='img/quiz/iphone-11-pro.png') }}" alt="" aria-hidden="true">
