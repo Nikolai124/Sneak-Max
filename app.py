@@ -16,13 +16,13 @@ from flask import request
 
 
 load_dotenv()
-SMTP_HOST = os.getenv("SMTP_HOST", "smtp.yandex.ru")
+SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
 SMTP_USER = os.getenv("SMTP_USER", "")
-SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
-MAIL_FROM = os.getenv("MAIL_FROM", SMTP_USER)
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "").replace(" ", "")
+MAIL_FROM = os.getenv("MAIL_FROM") or SMTP_USER
 MAIL_FROM_NAME = os.getenv("MAIL_FROM_NAME", "SneakMax")
-MAIL_ADMIN = os.getenv("MAIL_ADMIN", SMTP_USER)
+MAIL_ADMIN = os.getenv("MAIL_ADMIN") or SMTP_USER
 
 with open("products.json", "r", encoding="utf-8") as file:
     product_list = json.load(file)
