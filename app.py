@@ -17,7 +17,7 @@ load_dotenv()
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
 MAIL_FROM = os.getenv("MAIL_FROM", "onboarding@resend.dev").strip()
 MAIL_FROM_NAME = os.getenv("MAIL_FROM_NAME", "SneakMax")
-MAIL_ADMIN = os.getenv("MAIL_ADMIN", "").strip()
+MAIL_ADMIN = os.getenv("MAIL_ADMIN", "g4728281919@gmail.com").strip()
 resend.api_key = RESEND_API_KEY
 
 with open("products.json", "r", encoding="utf-8") as file:
@@ -128,6 +128,16 @@ def build_admin_letter(name, email, types, sizes):
     return "\n".join(lines)
 
 
+def build_contact_letter(name, phone):
+    lines = [
+        "Новая заявка на обратный звонок с сайта SneakMax.",
+        "",
+        f"Имя: {name}",
+        f"Телефон: {phone}",
+    ]
+    return "\n".join(lines)
+
+
 @app.post('/quiz/send')
 def quiz_send():
     data = request.get_json(silent=True)
@@ -159,6 +169,31 @@ def quiz_send():
             reply_to=email,
         )
     return jsonify(ok=True, message=f"Готово! Подборка отправлена на {email}")
+
+
+@app.post('/contact/send')
+def contact_send():
+    data = request.get_json(silent=True)
+    if data is None:
+        data = request.form.to_dict()
+    name = str(data.get("user_name", "")).strip()
+    phone = str(data.get("tel", "")).strip()
+    digits = re.sub(r"\D", "", phone)
+    if len(name) < 2:
+        return jsonify(ok=False, message="Укажите имя"), 400
+    if not 10 <= len(digits) <= 15:
+        return jsonify(ok=False, message="Укажите корректный номер телефона"), 400
+    if not MAIL_ADMIN:
+        app.logger.error("Заявка не отправлена: заполните MAIL_ADMIN в .env")
+        return jsonify(ok=False, message="Не удалось отправить заявку, попробуйте позже"), 502
+    sent = send_mail(
+        to=MAIL_ADMIN,
+        subject=f"Заявка на звонок: {name}",
+        body=build_contact_letter(name, phone),
+    )
+    if not sent:
+        return jsonify(ok=False, message="Не удалось отправить заявку, попробуйте позже"), 502
+    return jsonify(ok=True, message="Спасибо! Менеджер свяжется с вами")
 
 
 if __name__ == "__main__":
