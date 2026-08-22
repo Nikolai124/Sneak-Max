@@ -1,12 +1,10 @@
 import json
 import os
 import re
-import smtplib
-import ssl
 import sys
 
 
-from email.message import EmailMessage
+import resend
 from email.utils import formataddr
 from dotenv import load_dotenv
 from flask import Flask
@@ -16,13 +14,11 @@ from flask import request
 
 
 load_dotenv()
-SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
-SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
-SMTP_USER = os.getenv("SMTP_USER", "")
-SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "").replace(" ", "")
-MAIL_FROM = os.getenv("MAIL_FROM") or SMTP_USER
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
+MAIL_FROM = os.getenv("MAIL_FROM", "onboarding@resend.dev").strip()
 MAIL_FROM_NAME = os.getenv("MAIL_FROM_NAME", "SneakMax")
-MAIL_ADMIN = os.getenv("MAIL_ADMIN") or SMTP_USER
+MAIL_ADMIN = os.getenv("MAIL_ADMIN", "").strip()
+resend.api_key = RESEND_API_KEY
 
 with open("products.json", "r", encoding="utf-8") as file:
     product_list = json.load(file)
@@ -51,30 +47,26 @@ def main():
 
 
 def send_mail(to, subject, body, reply_to=None):
-    if not (SMTP_HOST and SMTP_USER and SMTP_PASSWORD):
-        app.logger.error("SMTP не настроен: заполните SMTP_HOST, SMTP_USER и SMTP_PASSWORD в .env")
+    if not RESEND_API_KEY:
+        app.logger.error("Resend не настроен: заполните RESEND_API_KEY в .env")
         return False
-    message = EmailMessage()
-    message["From"] = formataddr((MAIL_FROM_NAME, MAIL_FROM))
-    message["To"] = to
-    message["Subject"] = subject
+    params = {
+        "from": formataddr((MAIL_FROM_NAME, MAIL_FROM)),
+        "to": [to],
+        "subject": subject,
+        "text": body,
+    }
     if reply_to:
-        message["Reply-To"] = reply_to
-    message.set_content(body)
-    context = ssl.create_default_context()
+        params["reply_to"] = [reply_to]
     try:
-        if SMTP_PORT == 465:
-            with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context, timeout=20) as server:
-                server.login(SMTP_USER, SMTP_PASSWORD)
-                server.send_message(message)
-        else:
-            with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=20) as server:
-                server.starttls(context=context)
-                server.login(SMTP_USER, SMTP_PASSWORD)
-                server.send_message(message)
-    except (smtplib.SMTPException, OSError) as error:
+        result = resend.Emails.send(params)
+    except resend.exceptions.ResendError as error:
+        app.logger.error("Письмо на %s не отправлено. Resend %s: %s", to, error.code, error.message)
+        return False
+    except (ValueError, OSError) as error:
         app.logger.error("Письмо на %s не отправлено. %s: %s", to, type(error).__name__, error)
         return False
+    app.logger.info("Письмо на %s отправлено, id %s", to, result.get("id"))
     return True
 
 
