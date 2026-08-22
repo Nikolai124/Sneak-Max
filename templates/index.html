@@ -296,6 +296,22 @@
                     </details>
                 </div>
             </section>
+            <section class="inst" id="contacts">
+                <div class="container inst__container">
+                    <div class="inst__content">
+                        <h2 class="inst__title">Есть вопросы?</h2>
+                        <p class="inst__text">Заполните форму и наш<br>менеджер свяжется с вами</p>
+                        <form class="inst__form" action="{{ url_for('contact_send') }}" method="POST" novalidate>
+                            <div class="inst__forms">
+                                <input type="text" placeholder="Ваше имя" class="inst__input" name="user_name" required>
+                                <input type="tel" placeholder="Номер телефона" class="inst__input" name="tel" required>
+                                <button class="inst__btn" type="submit">Отправить</button>
+                                <p class="inst__status" role="status"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <script src="{{ url_for('static', filename='script.js') }}"></script>

@@ -831,3 +831,115 @@ button[name="reset"] {
 .quiz-status--error {
     color: #d94141;
 }
+
+.inst {
+    padding: 60px 0;
+}
+
+.inst__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.inst__content {
+    background-color: #484283;
+    width: 380px;
+    min-height: 400px;
+    border-radius: 4px;
+    color: white;
+    margin-bottom: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inst__title {
+    justify-content: center;
+    display: flex;
+}
+
+.inst__text {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.inst__forms {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.inst__input {
+    width: 100%;
+    max-width: 340px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #444B58;
+}
+
+.inst__btn {
+    width: 100%;
+    max-width: 340px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    background-color: #F14F4F;
+    color: white;
+    transition: 0.3s;
+}
+
+.inst__btn:hover {
+    background-color: #d63c3c;
+}
+
+.inst__btn:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inst__img {
+    max-width: 100%;
+    height: auto;
+}
+
+.inst__status {
+    min-height: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.inst__status--pending {
+    color: #cfcbe8;
+}
+
+.inst__status--success {
+    color: #8be2a5;
+}
+
+.inst__status--error {
+    color: #ffb3b3;
+}

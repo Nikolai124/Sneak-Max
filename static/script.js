@@ -161,3 +161,68 @@ if (quizForm) {
         }
     });
 }
+
+const instForm = document.querySelector(".inst__form");
+const instStatus = document.querySelector(".inst__status");
+
+function setInstStatus(text, state) {
+    if (!instStatus) {
+        return;
+    }
+    instStatus.textContent = text;
+    instStatus.className = "inst__status";
+    if (state) {
+        instStatus.classList.add(`inst__status--${state}`);
+    }
+}
+
+if (instForm) {
+    const instButton = instForm.querySelector(".inst__btn");
+
+    instForm.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const payload = {
+            user_name: instForm.user_name.value.trim(),
+            tel: instForm.tel.value.trim()
+        };
+
+        if (payload.user_name.length < 2) {
+            setInstStatus("Укажите имя", "error");
+            return;
+        }
+
+        const digits = payload.tel.replace(/\D/g, "");
+
+        if (digits.length < 10 || digits.length > 15) {
+            setInstStatus("Укажите корректный номер телефона", "error");
+            return;
+        }
+
+        instButton.disabled = true;
+        setInstStatus("Отправляем...", "pending");
+
+        try {
+            const response = await fetch(instForm.action, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+
+            if (response.ok && result.ok) {
+                setInstStatus(result.message, "success");
+                instForm.reset();
+            }
+            else {
+                setInstStatus(result.message || "Не удалось отправить заявку", "error");
+            }
+        }
+        catch (error) {
+            setInstStatus("Сервер недоступен, попробуйте позже", "error");
+        }
+        finally {
+            instButton.disabled = false;
+        }
+    });
+}
