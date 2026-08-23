@@ -279,33 +279,17 @@
                     <h2 class="faq__title">Часто задаваемые вопросы</h2>
 
                     <ul class="faq__list list_reset">
-                        <li class="faq__open">
-                            <button class="faq__btn" type="button">
-                                <span class="faq__question">Вопрос 1</span>
-                                <span class="faq__ico"></span>
-                            </button>
-                            <div class="faq__content">
-                                <p>Ответ 1</p>
-                            </div>
-                        </li>
-                        <li class="faq__open">
-                            <button class="faq__btn" type="button">
-                                <span class="faq__question">Вопрос 2</span>
-                                <span class="faq__ico"></span>
-                            </button>
-                            <div class="faq__content">
-                                <p>Ответ 2</p>
-                            </div>
-                        </li>
-                        <li class="faq__open">
-                            <button class="faq__btn" type="button">
-                                <span class="faq__question">Вопрос 3</span>
-                                <span class="faq__ico"></span>
-                            </button>
-                            <div class="faq__content">
-                                <p>Ответ 3</p>
-                            </div>
-                        </li>
+                        {% for item in faq %}
+                            <li class="faq__open">
+                                <button class="faq__btn" type="button">
+                                    <span class="faq__question">{{ item.question }}</span>
+                                    <span class="faq__ico"></span>
+                                </button>
+                                <div class="faq__content">
+                                    <p>{{ item.answer }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
