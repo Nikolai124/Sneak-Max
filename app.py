@@ -26,6 +26,8 @@ with open("quiz.json", "r", encoding="utf-8") as file:
     quiz_list = json.load(file)
 with open("team.json", "r", encoding="utf-8") as file:
     team_list = json.load(file)
+with open("faq.json", "r", encoding="utf-8") as file:
+    faq_list = json.load(file)
 
 app = Flask(__name__)
 app.json.ensure_ascii = False
@@ -42,7 +44,7 @@ MAX_PICKED = 6
 
 @app.route('/')
 def main():
-    return render_template('index.html', products=product_list, quiz=quiz_list, team=team_list)
+    return render_template('index.html', products=product_list, quiz=quiz_list, team=team_list, faq=faq_list)
 
 
 def send_mail(to, subject, body, reply_to=None):
