@@ -2,9 +2,9 @@ import json
 import os
 import re
 import sys
-
-
 import resend
+
+
 from email.utils import formataddr
 from dotenv import load_dotenv
 from flask import Flask
@@ -39,7 +39,6 @@ SIZE_RANGES = {
     "45 и больше": (45, 99),
 }
 MAX_PICKED = 6
-
 
 @app.route('/')
 def main():
