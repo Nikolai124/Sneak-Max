@@ -23,10 +23,10 @@
                             <li class="nav_item"><a href="#about" class="upper">О нас</a></li>
                             <li class="nav_item"><a href="#quiz" class="upper">Подбор товара</a></li>
                             <li class="nav_item"><a href="#team" class="upper">Наша команда</a></li>
-                            <li class="nav_item"><a href="#" class="upper">Доставка и оплата</a></li>
-                            <li class="nav_item"><a href="#contacts" class="upper">Контакты</a></li>
+                            <li class="nav_item"><a href="#map" class="upper">Доставка и оплата</a></li>
+                            <li class="nav_item"><a href="#map" class="upper">Контакты</a></li>
                             <li class="nav_item"><a href="#404" class="upper">Корзина</a></li>
-                            <img src="{{ url_for('static', filename='img/site/basket.png') }}" class="basket">
+                            <li class="nav_item"><a href="#404" class="upper"><img src="{{ url_for('static', filename='img/site/basket.png') }}" class="basket"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -46,9 +46,7 @@
                     <span class="hero__bg-text" aria-hidden="true">
                         SneakMax
                     </span>
-                    <button class="btn__go">
-                        Перейти к покупкам
-                    </button>
+                    <a class="btn__go" href="#catalog">Перейти к покупкам</a>
                 </div>
             </section>
 
@@ -280,24 +278,61 @@
                 <div class="container">
                     <h2 class="faq__title">Часто задаваемые вопросы</h2>
 
-                    <details>
-                        <summary>ㅤВопрос 1</summary>
-                        <p>Ответ 1</p>
-                    </details>
-
-                    <details>
-                        <summary>ㅤВопрос 2</summary>
-                        <p>Ответ 2</p>
-                    </details>
-
-                    <details>
-                        <summary>ㅤВопрос 3</summary>
-                        <p>Ответ 3</p>
-                    </details>
+                    <ul class="faq__list list_reset">
+                        <li class="faq__open">
+                            <button class="faq__btn" type="button">
+                                <span class="faq__question">Вопрос 1</span>
+                                <span class="faq__ico"></span>
+                            </button>
+                            <div class="faq__content">
+                                <p>Ответ 1</p>
+                            </div>
+                        </li>
+                        <li class="faq__open">
+                            <button class="faq__btn" type="button">
+                                <span class="faq__question">Вопрос 2</span>
+                                <span class="faq__ico"></span>
+                            </button>
+                            <div class="faq__content">
+                                <p>Ответ 2</p>
+                            </div>
+                        </li>
+                        <li class="faq__open">
+                            <button class="faq__btn" type="button">
+                                <span class="faq__question">Вопрос 3</span>
+                                <span class="faq__ico"></span>
+                            </button>
+                            <div class="faq__content">
+                                <p>Ответ 3</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
+            <section class="contacts" id="map">
+                <div class="container">
+                    <div class="contacts__text-all">
+                        <iframe class="contacts__widget-map" id="map_82230712" frameborder="0" width="640" height="480"
+                            src="https://makemap.2gis.ru/widget?data=eJzNkU1qwzAQhe-iboXRz0iyfICU7rIrtGRh4nErkC2jKNA0-O6dyIQeoFlUsxHvoTffjK4s5QEzDs-YJiw54Il171dWLguyju2wL-eMjLMlpwVzqT7ZocSbT8aAp2MOSwlp3oRjiinT9Umg6eFIyvfLPOAX66S4n5Wzj63hpcZt3fYpzKUmEFSY-1JhtGi0Mt4qbnzjjTLyQM_DwDrltVv5v4O1VJVVC6vVHRaEhkfBjhJGGB8BCxqUgEoLyvyuFqxvH7Za1cpR_ZkWXKPASGm5sY0EC-4Oa5yw64GzqV_26RQ2hCuLfSGPJrNSeucVaAHGcRZvdv0oaLWzlNSCbgkvpekGR6k0Sorx9RMxvlW15DOuP1N89iE"
+                            sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+                        <h2 class="contacts__title">Контакты</h2>
+                        <button class="contacts__btn" type="button">?</button>
+                        <p class="contacts__toggle">Адрес и телефон для корреспонденции, инвесторов.<br>Вопросы о
+                            доставке, качестве обслуживания и товара<br>просьба задавать в отдел продаж</p>
+                        <p class="contacts__office">Главный офис</p>
+                        <p class="contacts__number">8 800 555 35-35</p>
+                        <p class="contacts__adds">г. Санкт-Петербург, Комсомольская, 43 к1</p>
+                        <p class="contacts__dpr">Отдел продаж</p>
+                        <p class="contacts__number">8 800 555 35-35</p>
+                        <p class="contacts__adds">г. Санкт-Петербург, Комсомольская, 43 к1</p>
+                        <img class="contacts__icons" src="{{ url_for('static', filename='img/site/contacts__icons.png') }}" alt="">
+                    </div>
+                </div>
+            </section>
+
             <section class="inst" id="contacts">
                 <div class="container inst__container">
+                    <img class="inst__img" src="{{ url_for('static', filename='img/site/Inst__img.png') }}" alt="">
                     <div class="inst__content">
                         <h2 class="inst__title">Есть вопросы?</h2>
                         <p class="inst__text">Заполните форму и наш<br>менеджер свяжется с вами</p>
@@ -313,6 +348,26 @@
                 </div>
             </section>
         </main>
+
+        <footer class="footer">
+            <div class="container grid footer_container">
+                <div class="footer_left">
+                    <a class="footer__title">SneakMax</a>
+                </div>
+                <div class="footer_right">
+                    <nav>
+                        <ul class="nav_list list_reset">
+                            <li class="nav_item"><a href="#catalog" class="upper">Каталог</a></li>
+                            <li class="nav_item"><a href="#about" class="upper">О нас</a></li>
+                            <li class="nav_item"><a href="#quiz" class="upper">Подбор товара</a></li>
+                            <li class="nav_item"><a href="#team" class="upper">Наша команда</a></li>
+                            <li class="nav_item"><a href="#map" class="upper">Доставка и оплата</a></li>
+                            <li class="nav_item"><a href="#contacts" class="upper">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
 
         <script src="{{ url_for('static', filename='script.js') }}"></script>
     </div>

@@ -226,3 +226,15 @@ if (instForm) {
         }
     });
 }
+
+const faqButtons = document.querySelectorAll(".faq__btn");
+
+for (let i = 0; i < faqButtons.length; i++) {
+    faqButtons[i].addEventListener("click", () => {
+        const faqOpen = faqButtons[i].closest(".faq__open");
+
+        if (faqOpen) {
+            faqOpen.classList.toggle("active");
+        }
+    });
+}
