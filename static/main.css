@@ -1,4 +1,4 @@
-html {
+contacts__text-all {
 	scroll-behavior: smooth;
 }
 
@@ -65,6 +65,7 @@ html {
 .header_left {
 	grid-column-start: span 2;
 	grid-column-end: auto;
+	margin-bottom: 16px;
 }
 
 .header_right {
@@ -355,7 +356,6 @@ html {
 
 .contacts {
 	padding: 60px 0;
-	background-color: #F3F6F6;
 }
 
 .contacts img {
@@ -365,7 +365,6 @@ html {
 .contacts__text-all {
 	position: relative;
 	min-height: 480px;
-	margin-bottom: 100px;
 }
 
 .contacts__title {
@@ -422,6 +421,9 @@ html {
 	color: #B2B5BB;
 }
 
+.HnF{
+	padding: 16px 8px 16px 8px;
+}
 
 .footer {
 	background-color: #444B58;
