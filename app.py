@@ -117,6 +117,21 @@ def build_customer_letter(name, types, sizes, picked):
     return "\n".join(lines)
 
 
+def build_empty_customer_letter(name):
+    lines = [
+        f"{name}, здравствуйте!",
+        "",
+        "Вы отправили заявку из квиза, но не выбрали ни тип обуви, ни размер,",
+        "поэтому подобрать для вас модели не получилось.",
+        "",
+        "Пройдите квиз ещё раз и отметьте хотя бы один вариант ответа -",
+        "и мы пришлём вам персональную подборку кроссовок.",
+        "",
+        "С уважением, команда SneakMax",
+    ]
+    return "\n".join(lines)
+
+
 def build_admin_letter(name, email, types, sizes):
     lines = [
         "Новая заявка с квиза на сайте SneakMax.",
@@ -154,11 +169,17 @@ def quiz_send():
     allowed_types = {item["model"] for item in quiz_list}
     types = clean_choices(data.get("types"), allowed_types)
     sizes = clean_choices(data.get("sizes"), SIZE_RANGES.keys())
-    picked = pick_products(sizes)
+    if not types and not sizes:
+        subject = "Заявка с квиза SneakMax"
+        body = build_empty_customer_letter(name)
+    else:
+        picked = pick_products(sizes)
+        subject = "Ваша подборка кроссовок SneakMax"
+        body = build_customer_letter(name, types, sizes, picked)
     sent = send_mail(
         to=email,
-        subject="Ваша подборка кроссовок SneakMax",
-        body=build_customer_letter(name, types, sizes, picked),
+        subject=subject,
+        body=body,
     )
     if not sent:
         return jsonify(ok=False, message="Не удалось отправить письмо, попробуйте позже"), 502
