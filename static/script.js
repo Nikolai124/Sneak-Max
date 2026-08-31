@@ -238,3 +238,13 @@ for (let i = 0; i < faqButtons.length; i++) {
         }
     });
 }
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const element = entry.target;
+            element.src = element.dataset.src;
+            observer.unobserve(element);
+        }
+    });
+});
+document.querySelectorAll('.lazy').forEach(el => observer.observe(el));
